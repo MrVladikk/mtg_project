@@ -1,0 +1,24 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}
+{{card.name }}{% endblock %} {% block content %}
+<section class="card-detail">
+  <div class="card-image">
+    {% if card.image_url %}
+    <img src="{% static card.image_url %}" alt="{{ card.name }}" />
+    {% else %}
+    <img
+      src="{% static 'mtg_app/images/default_card.jpg' %}"
+      alt="{{ card.name }}"
+    />
+    {% endif %}
+  </div>
+  <div class="card-info">
+    <h2>{{ card.name }}</h2>
+    <p><strong>Сет:</strong> {{ card.set.name }}</p>
+    <p><strong>Коллекционный номер:</strong> {{ card.collector_number }}</p>
+    <p><strong>Редкость:</strong> {{ card.rarity }}</p>
+    <p><strong>Цена покупки:</strong> {{ card.purchase_price }}</p>
+    <p><strong>Язык:</strong> {{ card.language }}</p>
+    <p><strong>Состояние:</strong> {{ card.condition }}</p>
+  </div>
+</section>
+{% endblock %}

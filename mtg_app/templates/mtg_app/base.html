@@ -1,0 +1,32 @@
+{% load static %}
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}MTG Коллекция{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'mtg_app/styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>MTG Коллекция</h1>
+        <nav>
+          <a href="{% url 'mtg_app:home' %}" class="nav-link">Главная</a>
+          <a href="{% url 'mtg_app:card_list' %}" class="nav-link">Карты</a>
+          <a href="{% url 'mtg_app:set_list' %}" class="nav-link">Сеты</a>
+          <a href="{% url 'mtg_app:deck_list' %}" class="nav-link">Колоды</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {% block content %}
+      <!-- Содержимое страницы будет здесь -->
+      {% endblock %}
+    </main>
+
+    <footer>
+      <p>&copy; 2025 MTG Коллекция. Все права защищены.</p>
+    </footer>
+  </body>
+</html>

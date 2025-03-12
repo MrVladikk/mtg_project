@@ -1,0 +1,36 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Список
+карт{% endblock %} {% block content %}
+<section class="search">
+  <form method="get" action="{% url 'mtg_app:card_list' %}">
+    <input
+      type="text"
+      name="q"
+      placeholder="Поиск карт..."
+      value="{{ query }}"
+    />
+    <button type="submit" class="btn">Найти</button>
+  </form>
+</section>
+
+<section class="card-grid">
+  {% for card in cards %}
+  <div class="card">
+    <a href="{% url 'mtg_app:card_detail' card.id %}">
+      <div class="card-image">
+        {% if card.image_url %}
+        <img src="{% static card.image_url %}" alt="{{ card.name }}" />
+        {% else %}
+        <img
+          src="{% static 'mtg_app/images/default_card.jpg' %}"
+          alt="{{ card.name }}"
+        />
+        {% endif %}
+      </div>
+      <div class="card-name">
+        <h3>{{ card.name }}</h3>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}

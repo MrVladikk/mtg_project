@@ -1,0 +1,21 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Список
+сетов{% endblock %} {% block content %}
+<section class="set-list">
+  <h2>Все сеты</h2>
+  <div class="set-grid">
+    {% for set in sets %}
+    <div class="set-card">
+      <a href="{% url 'mtg_app:set_detail' set.id %}">
+        <div class="set-name">
+          <h3>{{ set.name }}</h3>
+        </div>
+        <div class="set-info">
+          <p><strong>Код сета:</strong> {{ set.code }}</p>
+          <p><strong>Дата выпуска:</strong> {{ set.release_date }}</p>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

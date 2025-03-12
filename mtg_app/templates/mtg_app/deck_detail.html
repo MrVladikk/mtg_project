@@ -1,0 +1,32 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}
+{{deck.name }}{% endblock %} {% block content %}
+<section class="deck-detail">
+  <h2>{{ deck.name }}</h2>
+  <div class="deck-description">
+    <p>{{ deck.description }}</p>
+  </div>
+
+  <h3>Карты в этой колоде</h3>
+  <div class="card-grid">
+    {% for card in deck.cards.all %}
+    <div class="card">
+      <a href="{% url 'mtg_app:card_detail' card.id %}">
+        <div class="card-image">
+          {% if card.image_url %}
+          <img src="{% static card.image_url %}" alt="{{ card.name }}" />
+          {% else %}
+          <img
+            src="{% static 'mtg_app/images/default_card.jpg' %}"
+            alt="{{ card.name }}"
+          />
+          {% endif %}
+        </div>
+        <div class="card-name">
+          <h3>{{ card.name }}</h3>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

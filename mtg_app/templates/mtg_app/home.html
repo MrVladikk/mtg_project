@@ -1,0 +1,34 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Главная
+страница{% endblock %} {% block content %}
+<section class="hero">
+  <div class="hero-content">
+    <h2>Исследуйте коллекцию карт Magic: The Gathering</h2>
+    <a href="{% url 'mtg_app:card_list' %}" class="btn">Посмотреть все карты</a>
+  </div>
+</section>
+
+<section class="latest-cards">
+  <h2>Последние добавленные карты</h2>
+  <div class="card-grid">
+    {% for card in latest_cards %}
+    <div class="card">
+      <a href="{% url 'mtg_app:card_detail' card.id %}">
+        <div class="card-image">
+          {% if card.image_url %}
+          <img src="{% static card.image_url %}" alt="{{ card.name }}" />
+          {% else %}
+          <img
+            src="{% static 'mtg_app/images/default_card.jpg' %}"
+            alt="{{ card.name }}"
+          />
+          {% endif %}
+        </div>
+        <div class="card-name">
+          <h3>{{ card.name }}</h3>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

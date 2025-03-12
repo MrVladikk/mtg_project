@@ -1,0 +1,22 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Список
+колод{% endblock %} {% block content %}
+<section class="deck-list">
+  <h2>Все колоды</h2>
+  <div class="deck-grid">
+    {% for deck in decks %}
+    <div class="deck-card">
+      <a href="{% url 'mtg_app:deck_detail' deck.id %}">
+        <div class="deck-name">
+          <h3>{{ deck.name }}</h3>
+        </div>
+        <div class="deck-info">
+          <p>
+            <strong>Описание:</strong> {{ deck.description|truncatechars:100 }}
+          </p>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
