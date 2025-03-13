@@ -12,6 +12,11 @@
   </form>
 </section>
 
+<!-- Добавляем вывод общего количества карт -->
+<section class="total-cards">
+  <p>Общее количество карт: {{ total_cards }}</p>
+</section>
+
 <section class="card-grid">
   {% for card in cards %}
   <div class="card">

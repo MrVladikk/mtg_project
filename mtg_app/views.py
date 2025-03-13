@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from mtg_app.models import Card,Set, Deck
 from django.db.models import Q
+from django.db.models import Sum
 # Create your views here.
 
 def home(request):
@@ -19,9 +20,13 @@ def card_list(request):
             Q(set__name__icontains=query) |  # Поиск по названию сета
             Q(rarity__icontains=query)  # Поиск по редкости
         )
+        # Считаем общее количество карт в результатах поиска (сумма quantity)
+        total_cards = cards.aggregate(total=Sum('quantity'))['total'] or 0
     else:
         cards = Card.objects.all()  # Все карты, если запроса нет
-    return render(request, 'mtg_app/card_list.html', {'cards': cards, 'query': query})
+        total_cards = Card.objects.aggregate(total=Sum('quantity'))['total'] or 0
+        
+    return render(request, 'mtg_app/card_list.html', {'cards': cards, 'query': query, 'total_cards': total_cards})
 
 def card_detail(request, card_id):
     card = get_object_or_404(Card, id=card_id)  # Находим карту по ID

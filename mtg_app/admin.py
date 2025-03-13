@@ -7,6 +7,10 @@ from .models import Set,Card,Deck
 class SetAdmin(admin.ModelAdmin):
     list_display = ("name","code")
     search_fields = ("name","code")
+    
+    def card_count(self, obj):
+        return obj.cards.count()
+    card_count.short_description = "Количество карт"
 
 
 @admin.register(Card)

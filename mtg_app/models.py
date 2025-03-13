@@ -6,6 +6,9 @@ class Set (models.Model):
     code = models.CharField(max_length=10)
     name = models.CharField(max_length=100)
     
+    def card_count(self):
+        return self.card_set.count()()
+    
     def __str__(self):
         return self.name
 
