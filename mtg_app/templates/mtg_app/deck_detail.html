@@ -6,9 +6,25 @@
     <p>{{ deck.description }}</p>
   </div>
 
+  <!-- Добавляем кнопки сортировки карт -->
+  <section class="sorting">
+    <h3>Сортировка карт:</h3>
+    <a
+      href="?sort=alphabetical"
+      class="btn {% if sort == 'alphabetical' %}active{% endif %}"
+      >По алфавиту</a
+    >
+    <a
+      href="?sort=default"
+      class="btn {% if sort == 'default' or not sort %}active{% endif %}"
+      >По умолчанию</a
+    >
+  </section>
+
   <h3>Карты в этой колоде</h3>
   <div class="card-grid">
-    {% for card in deck.cards.all %}
+    {% for card in cards %}
+    <!-- Используем переменную cards -->
     <div class="card">
       <a href="{% url 'mtg_app:card_detail' card.id %}">
         <div class="card-image">

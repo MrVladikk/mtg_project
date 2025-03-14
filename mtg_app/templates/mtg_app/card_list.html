@@ -12,6 +12,21 @@
   </form>
 </section>
 
+<!-- Добавляем кнопку сортировки -->
+<section class="sorting">
+  <h3>Сортировка:</h3>
+  <a
+    href="?sort=alphabetical"
+    class="btn {% if sort == 'alphabetical' %}active{% endif %}"
+    >По алфавиту</a
+  >
+  <a
+    href="?sort=default"
+    class="btn {% if sort == 'default' or not sort %}active{% endif %}"
+    >По умолчанию</a
+  >
+</section>
+
 <!-- Добавляем вывод общего количества карт -->
 <section class="total-cards">
   <p>Общее количество карт: {{ total_cards }}</p>

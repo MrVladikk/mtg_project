@@ -2,6 +2,22 @@
 колод{% endblock %} {% block content %}
 <section class="deck-list">
   <h2>Все колоды</h2>
+
+  <!-- Добавляем кнопки сортировки -->
+  <section class="sorting">
+    <h3>Сортировка:</h3>
+    <a
+      href="?sort=alphabetical"
+      class="btn {% if sort == 'alphabetical' %}active{% endif %}"
+      >По алфавиту</a
+    >
+    <a
+      href="?sort=default"
+      class="btn {% if sort == 'default' or not sort %}active{% endif %}"
+      >По умолчанию</a
+    >
+  </section>
+
   <div class="deck-grid">
     {% for deck in decks %}
     <div class="deck-card">

@@ -15,7 +15,7 @@ class Set (models.Model):
 class Card(models.Model):
     scryfall_id = models.CharField(max_length=100, unique=True, verbose_name="Scryfall ID")
     name = models.CharField(max_length=200, verbose_name="Название")
-    set = models.ForeignKey('Set', on_delete=models.CASCADE, verbose_name="Сет")
+    set = models.ForeignKey('Set', on_delete=models.CASCADE, verbose_name="Сет",related_name='cards')
     collector_number = models.CharField(max_length=20, verbose_name="Коллекционный номер")
     foil = models.BooleanField(default=False, verbose_name="Фоил")
     rarity = models.CharField(max_length=50, verbose_name="Редкость")

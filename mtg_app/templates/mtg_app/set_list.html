@@ -2,6 +2,13 @@
 сетов{% endblock %} {% block content %}
 <section class="set-list">
   <h2>Все сеты</h2>
+
+  <!-- Кнопки сортировки -->
+  <section class="sorting">
+    <a href="?sort=alphabetical" class="btn">Сортировать по алфавиту</a>
+    <a href="?sort=" class="btn">Сортировать по умолчанию</a>
+  </section>
+
   <div class="set-grid">
     {% for set in sets %}
     <div class="set-card">
@@ -12,7 +19,7 @@
         <div class="set-info">
           <p><strong>Код сета:</strong> {{ set.code }}</p>
           <p><strong>Дата выпуска:</strong> {{ set.release_date }}</p>
-          <p><strong>Количество карт:</strong> {{ set.card_set.count }}</p>
+          <p><strong>Количество карт:</strong> {{ set.total_cards }}</p>
         </div>
       </a>
     </div>

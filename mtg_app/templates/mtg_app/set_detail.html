@@ -5,8 +5,24 @@
   <div class="set-info">
     <p><strong>Код сета:</strong> {{ set.code }}</p>
     <p><strong>Дата выпуска:</strong> {{ set.release_date }}</p>
-    <p><strong>Количество карт:</strong> {{ set.card_set.count }}</p>
+    <p><strong>Общее количество карт в сете:</strong> {{ total_cards }}</p>
   </div>
+
+  <!-- Добавляем кнопки сортировки карт -->
+  <section class="sorting">
+    <h3>Сортировка карт:</h3>
+    <a
+      href="?sort=alphabetical"
+      class="btn {% if sort == 'alphabetical' %}active{% endif %}"
+      >По алфавиту</a
+    >
+
+    <a
+      href="?sort=default"
+      class="btn {% if sort == 'default' or not sort %}active{% endif %}"
+      >По умолчанию</a
+    >
+  </section>
 
   <h3>Карты в этом сете</h3>
   <div class="card-grid">
