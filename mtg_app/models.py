@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Set (models.Model):
@@ -24,6 +24,7 @@ class Card(models.Model):
     language = models.CharField(max_length=50, verbose_name="Язык")
     condition = models.CharField(max_length=50, verbose_name="Состояние")
     image_url = models.CharField(max_length=200, blank=True, null=True, verbose_name="Ссылка на изображение")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cards", null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -32,6 +33,7 @@ class Deck(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название колоды")
     description = models.TextField(blank=True, verbose_name="Описание")
     cards = models.ManyToManyField(Card, verbose_name="Карты в колоде")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="decks", null=True, blank=True)
 
     def __str__(self):
         return self.name

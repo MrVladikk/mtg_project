@@ -1,0 +1,8 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Добавить
+карту{% endblock %} {% block content %}
+<h2>Добавить карту</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn">Добавить карту</button>
+</form>
+{% endblock %}

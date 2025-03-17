@@ -1,7 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from mtg_app.models import Card,Set, Deck
 from django.db.models import Q
 from django.db.models import Sum,Count
+from django.contrib.auth import login
+from .forms import CustomUserCreationForm
+from django.contrib.auth.decorators import login_required
+from .forms import CardForm
+from .forms import DeckForm
+from django.contrib.auth import logout
 # Create your views here.
 
 def home(request):
@@ -92,3 +98,49 @@ def deck_detail(request, deck_id):
     else:
         cards = deck.cards.order_by('-id')  # Сортировка по умолчанию (новые карты в начале)
     return render(request, 'mtg_app/deck_detail.html', {'deck': deck,'sort': sort,'cards': cards})
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Автоматический вход после регистрации
+            return redirect('mtg_app:card_list')  # Перенаправление на главную страницу или другую
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'mtg_app/register.html', {'form': form})
+
+@login_required
+def add_card(request):
+    if request.method == 'POST':
+        form = CardForm(request.POST, request.FILES)
+        if form.is_valid():
+            card = form.save(commit=False)
+            card.owner = request.user  # Привязываем карту к текущему пользователю
+            card.save()
+            return redirect('mtg_app:card_list')
+    else:
+        form = CardForm()
+    return render(request, 'mtg_app/add_card.html', {'form': form})
+
+@login_required
+def add_deck(request):
+    """
+    Представление для добавления новой колоды. Доступно только авторизованным пользователям.
+    """
+    if request.method == 'POST':
+        form = DeckForm(request.POST)
+        if form.is_valid():
+            deck = form.save(commit=False)
+            deck.owner = request.user  # Привязываем колоду к текущему пользователю
+            deck.save()
+            form.save_m2m()  # Сохраняем связи ManyToMany (карты в колоде)
+            # Если нужно добавить карточки в колоду, можно добавить дополнительную логику здесь.
+            return redirect('mtg_app:deck_list')  # Перенаправляем пользователя на страницу со списком колод
+    else:
+        form = DeckForm()
+    return render(request, 'mtg_app/add_deck.html', {'form': form})
+
+def custom_logout(request):
+    logout(request)
+    return redirect('mtg_app:home')  # Перенаправление на главную страницу
