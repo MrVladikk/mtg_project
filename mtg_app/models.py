@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 # Create your models here.
 
 class Set (models.Model):
@@ -34,6 +35,8 @@ class Deck(models.Model):
     description = models.TextField(blank=True, verbose_name="Описание")
     cards = models.ManyToManyField(Card, verbose_name="Карты в колоде")
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="decks", null=True, blank=True)
+    is_private = models.BooleanField(default=False)  # Приватная/публичная колода
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.name

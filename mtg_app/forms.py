@@ -14,15 +14,21 @@ class CustomUserCreationForm(UserCreationForm):
 class CardForm(forms.ModelForm):
     class Meta:
         model = Card
-        fields = ['name', 'set', 'quantity', 'image_url']  # При необходимости добавьте другие поля
+        fields = ['name', 'set', 'quantity', 'image_url','language','purchase_price','rarity','condition']  # При необходимости добавьте другие поля
         
 class DeckForm(forms.ModelForm):
-    class Meta:
-        model = Deck
-        fields = ['name', 'description', 'cards']  # Поля формы
+    is_private = forms.BooleanField(
+        required=False,
+        label="Сделать колоду приватной",
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
 
+    class Meta:
+        model = Deck  # Добавьте это!
+        fields = ['name', 'description', 'cards', 'is_private','owner']
+        
     # Если нужно настроить виджет для поля cards (например, выбор нескольких карт)
-    cards = forms.ModelMultipleChoiceField(
+        cards = forms.ModelMultipleChoiceField(
         queryset=Card.objects.all(),
         widget=forms.CheckboxSelectMultiple,  # Виджет для выбора нескольких карт
         required=False

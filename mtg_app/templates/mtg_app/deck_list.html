@@ -24,11 +24,12 @@
       <a href="{% url 'mtg_app:deck_detail' deck.id %}">
         <div class="deck-name">
           <h3>{{ deck.name }}</h3>
+          {% if deck.is_private %}
+          <span class="private-badge">🔒 Приватная</span>
+          {% endif %}
         </div>
         <div class="deck-info">
-          <p>
-            <strong>Описание:</strong> {{ deck.description|truncatechars:100 }}
-          </p>
+          <p>{{ deck.description|truncatechars:100 }}</p>
         </div>
       </a>
     </div>

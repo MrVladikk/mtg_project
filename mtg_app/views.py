@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import CardForm
 from .forms import DeckForm
 from django.contrib.auth import logout
+from django.http import Http404
+from django.views.decorators.http import require_POST
 # Create your views here.
 
 def home(request):
@@ -36,6 +38,10 @@ def card_list(request):
     
     if sort == 'alphabetical':
         cards = cards.order_by('name')
+    elif sort == 'price':
+        cards = cards.order_by('purchase_price')
+    elif sort == 'price_desc':
+        cards = cards.order_by('-purchase_price')
     else:
         cards = cards.order_by('-id')
         
@@ -65,6 +71,10 @@ def set_detail(request, set_id):
     # Применяем сортировку
     if sort == 'alphabetical':
         cards = cards.order_by('name')  # Сортировка по имени
+    elif sort == 'price':
+        cards = cards.order_by('purchase_price')
+    elif sort == 'price_desc':
+        cards = cards.order_by('-purchase_price')
     
     else:
         cards = cards.order_by('-id')  # Сортировка по умолчанию
@@ -78,27 +88,49 @@ def set_detail(request, set_id):
         'sort': sort,
         'total_cards': total_cards,  # Передаём количество карт в шаблон
     })
+    
 def deck_list(request):
-    decks = Deck.objects.all()
-    sort = request.GET.get('sort')  # Получаем параметр сортировки
-
+    # Показываем:
+    # 1. Все публичные колоды (is_private=False)
+    # 2. Приватные колоды текущего пользователя
+    decks = Deck.objects.filter(
+        Q(is_private=False) | Q(owner=request.user.id)
+    ) if request.user.is_authenticated else Deck.objects.filter(is_private=False)
+    
+    sort = request.GET.get('sort')
+    
     if sort == 'alphabetical':
-        decks = Deck.objects.order_by('name')  # Сортировка по алфавиту
+        decks = decks.order_by('name')
     else:
-        decks = Deck.objects.order_by('-id')  # Сортировка по умолчанию (новые колоды в начале)
-
-    return render(request, 'mtg_app/deck_list.html', {'decks': decks,'sort': sort})
+        decks = decks.order_by('-created_at')
+    
+    return render(request, 'mtg_app/deck_list.html', {'decks': decks, 'sort': sort})
 
 def deck_detail(request, deck_id):
     deck = get_object_or_404(Deck, id=deck_id)
+    
+    if deck.is_private and deck.owner != request.user:
+        raise Http404("Колода не найдена")
+    
+    cards = deck.cards.all()  # Все карты колоды
     sort = request.GET.get('sort')  # Получаем параметр сортировки
-
+    
+    # Сортировка
     if sort == 'alphabetical':
-        cards = deck.cards.order_by('name')  # Сортировка карт по алфавиту
+        cards = cards.order_by('name')
+    elif sort == 'purchase_price':
+        cards = cards.order_by('purchase_price')
+    elif sort == 'purchase_price_desc':
+        cards = cards.order_by('-purchase_price')
     else:
-        cards = deck.cards.order_by('-id')  # Сортировка по умолчанию (новые карты в начале)
-    return render(request, 'mtg_app/deck_detail.html', {'deck': deck,'sort': sort,'cards': cards})
-
+        cards = cards.order_by('-id')
+    
+    return render(request, 'mtg_app/deck_detail.html', {
+        'deck': deck,
+        'cards': cards,
+        'sort': sort
+    })
+    
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -144,3 +176,15 @@ def add_deck(request):
 def custom_logout(request):
     logout(request)
     return redirect('mtg_app:home')  # Перенаправление на главную страницу
+
+@login_required
+@require_POST  # Разрешаем только POST-запросы
+def delete_deck(request, deck_id):
+    deck = get_object_or_404(Deck, id=deck_id)
+    
+    # Проверяем, что пользователь - владелец колоды
+    if deck.owner != request.user:
+        raise Http404("У вас нет прав на удаление этой колоды")
+    
+    deck.delete()
+    return redirect('mtg_app:deck_list')

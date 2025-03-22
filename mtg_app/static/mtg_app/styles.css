@@ -603,3 +603,37 @@ a:hover {
   color: #ffcc00; /* Золотой текст при наведении */
   transform: scale(1.05); /* Увеличение при наведении */
 }
+
+.private-badge {
+  font-size: 0.8rem;
+  color: #c8a24a;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Стиль для чекбокса приватности */
+.form-check {
+  margin: 15px 0;
+}
+
+.form-check label {
+  color: #c8a24a;
+  cursor: pointer;
+}
+
+.form-check input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+  border-color: #bb2d3b;
+}

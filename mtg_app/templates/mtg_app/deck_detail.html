@@ -15,6 +15,16 @@
       >По алфавиту</a
     >
     <a
+      href="?sort=purchase_price"
+      class="btn {% if sort == 'purchase_price' %}active{% endif %}"
+      >По возрастанию цены</a
+    >
+    <a
+      href="?sort=purchase_price_desc"
+      class="btn {% if sort == 'purchase_price_desc' %}active{% endif %}"
+      >По убыванию цены</a
+    >
+    <a
       href="?sort=default"
       class="btn {% if sort == 'default' or not sort %}active{% endif %}"
       >По умолчанию</a
@@ -44,5 +54,19 @@
     </div>
     {% endfor %}
   </div>
+  {% if deck.owner == request.user %}
+  <section class="delete-section">
+    <form method="post" action="{% url 'mtg_app:delete_deck' deck.id %}">
+      {% csrf_token %}
+      <button
+        type="submit"
+        class="btn btn-danger"
+        onclick="return confirm('Вы уверены, что хотите удалить колоду?')"
+      >
+        Удалить колоду
+      </button>
+    </form>
+  </section>
+  {% endif %}
 </section>
 {% endblock %}
