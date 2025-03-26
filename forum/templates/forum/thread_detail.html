@@ -1,0 +1,49 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}
+{{thread.title }}{% endblock %} {% block content %}
+<h2>{{ thread.title }}</h2>
+<p>Автор: {{ thread.author.username }}, создано: {{ thread.created_at }}</p>
+
+<!-- Если пользователь администратор, показываем кнопку удаления темы -->
+{% if user.is_staff %}
+<form
+  method="POST"
+  action="{% url 'forum:delete_thread' thread.id %}"
+  style="display: inline"
+>
+  {% csrf_token %}
+  <button type="submit" class="btn">Удалить тему</button>
+</form>
+{% endif %}
+
+<hr />
+<h3>Сообщения</h3>
+{% for post in posts %}
+<div class="post">
+  <p><strong>{{ post.author.username }}</strong> ({{ post.created_at }}):</p>
+  <p>{{ post.content }}</p>
+  <!-- Кнопка удаления поста для администратора -->
+  {% if user.is_staff %}
+  <form
+    method="POST"
+    action="{% url 'forum:delete_post' post.id %}"
+    style="display: inline"
+  >
+    {% csrf_token %}
+    <button type="submit" class="btn">Удалить сообщение</button>
+  </form>
+  {% endif %}
+</div>
+{% empty %}
+<p>Нет сообщений в этой теме.</p>
+{% endfor %}
+
+<hr />
+{% if user.is_authenticated %}
+<h3>Оставить сообщение</h3>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn">Отправить</button>
+</form>
+{% else %}
+<p><a href="{% url 'login' %}">Войдите</a>, чтобы оставить сообщение.</p>
+{% endif %} {% endblock %}

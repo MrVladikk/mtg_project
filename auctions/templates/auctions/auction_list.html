@@ -1,0 +1,20 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Аукционы
+{%endblock %} {% block content %}
+<h2>Активные аукционы</h2>
+<a href="{% url 'auctions:create_auction' %}" class="btn"
+  >Создать новый аукцион</a
+>
+<ul>
+  {% for auction in auctions %}
+  <li>
+    <a href="{% url 'auctions:auction_detail' auction.id %}">
+      {{ auction.card.name }} – Стартовая цена: {{ auction.starting_price }}
+      руб.
+    </a>
+    <small>Окончание: {{ auction.end_time }}</small>
+  </li>
+  {% empty %}
+  <p>Нет активных аукционов.</p>
+  {% endfor %}
+</ul>
+{% endblock %}

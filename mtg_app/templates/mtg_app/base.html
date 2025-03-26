@@ -15,6 +15,8 @@
           <a href="{% url 'mtg_app:card_list' %}" class="nav-link">Карты</a>
           <a href="{% url 'mtg_app:set_list' %}" class="nav-link">Сеты</a>
           <a href="{% url 'mtg_app:deck_list' %}" class="nav-link">Колоды</a>
+          <a href="{% url 'forum:thread_list' %}">Форум</a>
+          <a href="{% url 'auctions:auction_list' %}">Аукционы</a>
           {% if user.is_authenticated %}
           <!-- Кнопки для добавления карточек и колод -->
           <a

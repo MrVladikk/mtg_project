@@ -1,0 +1,29 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Форум
+{%endblock %} {% block content %}
+<h2>Темы форума</h2>
+<a href="{% url 'forum:new_thread' %}" class="btn">Создать новую тему</a>
+<ul>
+  {% for thread in threads %}
+  <li>
+    <a href="{% url 'forum:thread_detail' thread.id %}">
+      <span class="thread-title">{{ thread.title }}</span>
+    </a>
+    <small
+      >Автор: {{ thread.author.username }}, дата: {{ thread.created_at }}</small
+    >
+    {% if user.is_staff %}
+    <form
+      method="POST"
+      action="{% url 'forum:delete_thread' thread.id %}"
+      style="display: inline"
+    >
+      {% csrf_token %}
+      <button type="submit" class="btn">Удалить</button>
+    </form>
+    {% endif %}
+  </li>
+  {% empty %}
+  <p>Тем пока нет.</p>
+  {% endfor %}
+</ul>
+{% endblock %}

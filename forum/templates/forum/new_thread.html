@@ -1,0 +1,8 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Создать
+новую тему{% endblock %} {% block content %}
+<h2>Создать новую тему форума</h2>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn">Создать тему</button>
+</form>
+{% endblock %}

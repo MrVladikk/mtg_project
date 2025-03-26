@@ -1,0 +1,12 @@
+{% extends 'mtg_app/base.html' %} {% load static %} {% block title %}Создать
+аукцион{% endblock %} {% block content %}
+<h2>Создать новый аукцион</h2>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn">Создать аукцион</button>
+</form>
+<p>
+  После создания аукциона он будет отображаться на сайте только после
+  подтверждения администратора.
+</p>
+{% endblock %}

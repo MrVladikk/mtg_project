@@ -23,4 +23,6 @@ urlpatterns = [
     path('', include('mtg_app.urls')),
     path('logout/', auth_views.LogoutView.as_view(next_page='mtg_app:home'), name='logout'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('forum/', include('forum.urls', namespace='forum')),
+    path('auctions/', include('auctions.urls', namespace='auctions')),
 ]

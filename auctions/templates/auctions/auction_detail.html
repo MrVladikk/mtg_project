@@ -1,0 +1,40 @@
+{% extends 'mtg_app/base.html' %}
+{% load static %}
+{% block title %}Аукцион{% endblock %}
+{% block content %}
+  <h2>Аукцион: {{ auction.card.name }}</h2>
+  <p>Продавец: {{ auction.seller.username }}</p>
+  <p>Стартовая цена: {{ auction.starting_price }} руб.</p>
+  <p>Текущая цена: {% if auction.current_price %}{{ auction.current_price }} руб.{% else %}Не установлена{% endif %}</p>
+  <p>Окончание аукциона: {{ auction.end_time }}</p>
+  {% if not auction.approved %}
+    <p style="color: red;">Этот аукцион ожидает подтверждения администратора.</p>
+  {% endif %}
+
+  <hr>
+  <h3>Ставки</h3>
+  <ul>
+    {% for bid in bids %}
+      <li>{{ bid.bidder.username }}: {{ bid.bid_amount }} руб. ({{ bid.bid_time }})</li>
+    {% empty %}
+      <p>Ставок еще нет.</p>
+    {% endfor %}
+  </ul>
+
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if can_bid %}
+    <h3>Сделать ставку</h3>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn">Сделать ставку</button>
+    </form>
+  {% endif %}
+{% endblock %}
