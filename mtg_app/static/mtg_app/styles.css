@@ -644,3 +644,18 @@ a:hover {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   font-size: 1.2em;
 }
+
+.auction-title {
+  font-weight: bold;
+  color: #ffcc00; /* Золотой оттенок */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-size: 1.2em;
+}
+
+.auction-card-image img {
+  max-width: 300px;
+  border: 2px solid #c8a24a;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  margin: 20px 0;
+}

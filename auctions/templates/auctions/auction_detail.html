@@ -10,6 +10,15 @@
   {% if not auction.approved %}
     <p style="color: red;">Этот аукцион ожидает подтверждения администратора.</p>
   {% endif %}
+  
+<!-- Блок для изображения карточки -->
+<div class="auction-card-image">
+  {% if auction.card.image_url %}
+    <img src="{% static auction.card.image_url %}" alt="{{ auction.card.name }}" />
+  {% else %}
+    <img src="{% static 'mtg_app/images/default_card.jpg' %}" alt="{{ auction.card.name }}" />
+  {% endif %}
+</div>
 
   <hr>
   <h3>Ставки</h3>

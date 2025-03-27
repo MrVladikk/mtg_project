@@ -8,8 +8,7 @@
   {% for auction in auctions %}
   <li>
     <a href="{% url 'auctions:auction_detail' auction.id %}">
-      {{ auction.card.name }} – Стартовая цена: {{ auction.starting_price }}
-      руб.
+      <span class="auction-title">{{ auction.card.name }}</span> – Стартовая цена: {{ auction.starting_price }} руб.
     </a>
     <small>Окончание: {{ auction.end_time }}</small>
   </li>
