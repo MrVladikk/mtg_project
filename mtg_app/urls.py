@@ -19,4 +19,4 @@ urlpatterns =[
     path('add_deck/', views.add_deck, name='add_deck'),
     path('logout/', custom_logout, name='logout'),
     path('deck/delete/<int:deck_id>/', delete_deck, name='delete_deck'),
-]
+    ]
