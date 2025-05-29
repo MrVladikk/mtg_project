@@ -2,7 +2,7 @@ MTG Project Documentation
 
 Версия: 1.5
 Автор: MrVladikk
-Дата: Март 2025
+Дата: Май 2025
 
 1. Обзор проекта
 
