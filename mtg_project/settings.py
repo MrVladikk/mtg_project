@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mtg_app.apps.MtgAppConfig',
     'forum.apps.ForumConfig',
-    'auctions.apps.AuctionsConfig'
+    'auctions.apps.AuctionsConfig',
+    'data_processing.apps.DataProcessingConfig'
 ]
 
 MIDDLEWARE = [

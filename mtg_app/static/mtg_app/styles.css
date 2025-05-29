@@ -659,3 +659,114 @@ a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   margin: 20px 0;
 }
+
+/* Общие стили контейнера и сообщений */
+    .upload-csv-page-container {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #2a2a2a; /* Темный фон, как у вашего сайта */
+        border: 1px solid #444;    /* Темная рамка */
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        color: #ccc; /* Светлый текст на темном фоне */
+    }
+    .upload-csv-page-container h1 {
+        color: #f0e68c; /* Хаки/золотистый */
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    /* Стили для сообщений Django (messages framework) */
+    .upload-csv-page-container .messages {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .upload-csv-page-container .messages li {
+        padding: 12px 18px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        border: 1px solid;
+    }
+    .upload-csv-page-container .messages li::before {
+        margin-right: 10px;
+        font-weight: bold;
+    }
+    .upload-csv-page-container .messages li.success { background-color: #1a3a1a; border-color: #3c763d; color: #d6e9c6; }
+    .upload-csv-page-container .messages li.success::before { content: "✓"; }
+    .upload-csv-page-container .messages li.error { background-color: #4a1a1a; border-color: #a94442; color: #ebccd1; }
+    .upload-csv-page-container .messages li.error::before { content: "!"; }
+    .upload-csv-page-container .messages li.warning { background-color: #4a3b1a; border-color: #8a6d3b; color: #fcf8e3; }
+    .upload-csv-page-container .messages li.warning::before { content: "⚠"; }
+    .upload-csv-page-container .messages li.info { background-color: #1a304a; border-color: #31708f; color: #d9edf7; }
+    .upload-csv-page-container .messages li.info::before { content: "ℹ"; }
+
+    /* Стили для формы загрузки */
+    .upload-form-section p { /* Стилизация параграфов от form.as_p */
+        margin-bottom: 20px;
+    }
+    .upload-form-section label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #f0e68c; /* Хаки/золотистый для меток */
+        font-size: 15px;
+    }
+
+    .upload-form-section input[type="file"] {
+        color: #ccc; 
+        background-color: #333; 
+        border: 1px solid #555; 
+        padding: 10px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        width: 100%; 
+        box-sizing: border-box; 
+        margin-bottom: 5px; 
+        cursor: pointer;
+    }
+    .upload-form-section input[type="file"]::file-selector-button {
+        background-color: #c8a064; 
+        color: #1e1e1e; 
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+        transition: background-color 0.2s ease-in-out;
+        font-weight: 500;
+    }
+    .upload-form-section input[type="file"]::file-selector-button:hover {
+        background-color: #b08d57; 
+    }
+
+    .upload-form-section button[type="submit"] {
+        background-color: #c8a064; 
+        color: #1e1e1e; 
+        padding: 12px 25px;
+        border: 1px solid #a07c50; 
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase; 
+        letter-spacing: 0.5px;   
+        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        display: block; 
+        width: auto;    
+        margin: 20px auto 0 auto; 
+    }
+    .upload-form-section button[type="submit"]:hover {
+        background-color: #b08d57;
+        border-color: #8a6d45;
+    }
+    .upload-form-section button[type="submit"]:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(200, 160, 100, 0.4); 
+    }

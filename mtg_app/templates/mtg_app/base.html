@@ -17,6 +17,7 @@
           <a href="{% url 'mtg_app:deck_list' %}" class="nav-link">Колоды</a>
           <a href="{% url 'forum:thread_list' %}"class="nav-link">Форум</a>
           <a href="{% url 'auctions:auction_list' %}"class="nav-link">Аукционы</a>
+          <a href="{% url 'data_processing:upload_csv' %}">Загрузить CSV</a>
           {% if user.is_authenticated %}
           <!-- Кнопки для добавления карточек и колод -->
           <a

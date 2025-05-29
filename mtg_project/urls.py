@@ -25,4 +25,5 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('forum/', include('forum.urls', namespace='forum')),
     path('auctions/', include('auctions.urls', namespace='auctions')),
+    path('data/', include('data_processing.urls', namespace='data_processing')), 
 ]

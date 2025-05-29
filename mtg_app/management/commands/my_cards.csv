@@ -291,7 +291,7 @@ Glacial Floodplain,KHM,Kaldheim,257,normal,common,1,57004,9de5fadd-4559-479f-b45
 Treasure,TKHM,Kaldheim Tokens,19,normal,common,1,56862,4ae9f454-4f8c-4123-9886-674bc439dfe7,25.95,false,false,near_mint,ru,RUB
 Biblioplex Assistant,STX,Strixhaven: School of Mages,251,normal,common,1,58337,d74e1117-0196-4268-be97-a1e81b5dc90e,2.59,false,false,near_mint,ru,RUB
 Exhilarating Elocution,STX,Strixhaven: School of Mages,185,normal,common,1,58187,8468417d-7ef5-43e0-9190-e88f3eed9e82,1.73,false,false,near_mint,ru,RUB
-Quandrix Pledgemage,STX,Strixhaven: School of Mages,219,normal,common,1,57982,07633b7f-4150-458b-89c3-d05dc0e3c4bd,4.32,false,false,near_mint,ru,RUB
+Quandrix Pledgemage,STX,Strixhaven: School of Mages,219,normal,common,2,57982,07633b7f-4150-458b-89c3-d05dc0e3c4bd,3.37,false,false,near_mint,ru,RUB
 Waterfall Aerialist,STX,Strixhaven: School of Mages,61,normal,common,1,58166,7bc6966c-18d9-4675-9594-6f0b2d11c405,1.73,false,false,near_mint,ru,RUB
 Professor's Warning,STX,Strixhaven: School of Mages,84,normal,common,1,58193,862fded6-e474-4b20-86d8-fd9af5f25b1a,6.92,false,false,near_mint,ru,RUB
 Ageless Guardian,STX,Strixhaven: School of Mages,8,normal,common,1,58084,4a5ff6af-402f-4bf6-a75b-dc1e0e40aff6,1.73,false,false,near_mint,ru,RUB
@@ -635,3 +635,48 @@ Spectral Sailor,FDN,Foundations,164,normal,uncommon,1,100100,03a49535-c5f3-4a6f-
 Storm Fleet Spy,FDN,Foundations,515,normal,uncommon,1,101367,f6c5206e-63db-44c0-86ab-f645cd358b3b,18.37,false,false,near_mint,ru,RUB
 Tolarian Terror,FDN,Foundations,167,normal,common,1,100270,2569d4f3-55ed-4f99-9592-34c7df0aab72,5.85,false,false,near_mint,ru,RUB
 Uncharted Haven,FDN,Foundations,564,normal,common,3,97170,172cd5b7-98fc-4add-b858-a0b3dfb75c19,7.82,false,false,near_mint,ru,RUB
+Excavated Wall,STX,Strixhaven: School of Mages,255,normal,common,1,58411,fed54d00-b11f-4529-864c-63a114617b36,5.65,false,false,near_mint,ru,RUB
+Lorehold Pledgemage,STX,Strixhaven: School of Mages,201,normal,common,1,58162,79b88b38-6b5a-4a89-80ca-add79c11e8b9,1.62,false,false,near_mint,ru,RUB
+Essence Infusion,STX,Strixhaven: School of Mages,69,normal,common,1,58142,71a48d0c-1e5b-43f2-8974-e2e5bb06310d,4.04,false,false,near_mint,ru,RUB
+Star Pupil,STX,Strixhaven: School of Mages,30,normal,common,1,58237,99e9318f-2e17-4b6e-895f-c17cd5d0d282,3.23,false,false,near_mint,ru,RUB
+Blood Age General,STX,Strixhaven: School of Mages,93,normal,common,1,58386,f30237cc-27c8-4075-acbd-d75a16588a68,2.42,false,false,near_mint,ru,RUB
+Professor of Zoomancy,STX,Strixhaven: School of Mages,140,normal,common,1,58185,8347f2e8-ef70-4879-860a-12f7cab25902,8.89,false,false,near_mint,ru,RUB
+Arcane Subtraction,STX,Strixhaven: School of Mages,36,normal,common,1,58133,68cdb00c-ea86-4b72-8f62-570820edfa1b,4.85,false,false,near_mint,ru,RUB
+Fractal Summoning,STX,Strixhaven: School of Mages,187,normal,common,1,58322,cc3f1f7e-eb19-49c1-a1ee-93b85ac8815c,2.42,false,false,near_mint,ru,RUB
+Mascot Interception,STX,Strixhaven: School of Mages,110,normal,uncommon,1,58212,8f0ea66f-1756-4b0d-8ccc-3b3a7370b531,3.23,false,false,near_mint,ru,RUB
+Master Symmetrist,STX,Strixhaven: School of Mages,138,normal,uncommon,1,58034,255cdc39-6ad8-4831-9718-6712cb17654c,3.23,false,false,near_mint,ru,RUB
+Aether Helix,STX,Strixhaven: School of Mages,162,normal,uncommon,1,58171,7d1c653e-f629-4105-a52c-379c5cd78208,4.04,false,false,near_mint,ru,RUB
+Exponential Growth,STX,Strixhaven: School of Mages,130,normal,rare,1,58169,7c129bb7-9489-44bd-a46d-c5f738bf9d25,30.69,false,false,near_mint,ru,RUB
+Strategic Planning,STA,Strixhaven Mystical Archive,20,normal,uncommon,1,58410,fd7b2ee8-9f2f-4624-a788-15b88e6a2d50,8.08,false,false,near_mint,ru,RUB
+Plumb the Forbidden,STX,Strixhaven: School of Mages,81,foil,uncommon,1,58094,5034227f-3b8a-45bf-917c-c2cbd98f2192,83.2,false,false,near_mint,ru,RUB
+Elemental,TSTX,Strixhaven: School of Mages Tokens,2,normal,common,1,58065,3d0b9b88-705e-4df0-8a93-3e240b81355b,12.92,false,false,near_mint,ru,RUB
+Cram Session,STX,Strixhaven: School of Mages,170,normal,common,1,58313,c59a249f-35ed-447a-845b-32ba5a53124e,3.23,false,false,near_mint,ru,RUB
+Relic Sloth,STX,Strixhaven: School of Mages,223,normal,common,1,58302,c1cb483f-c567-4cfd-9fe8-1503e7b40542,1.62,false,false,near_mint,ru,RUB
+Teach by Example,STX,Strixhaven: School of Mages,241,normal,common,1,58260,aa7fbb9b-50a8-4d18-a667-fe965468ca16,9.69,false,false,near_mint,ru,RUB
+Witherbloom Campus,STX,Strixhaven: School of Mages,275,normal,common,1,58144,7346fb2e-754e-47de-b33d-eb089b357ee4,5.65,false,false,near_mint,ru,RUB
+Arrogant Poet,STX,Strixhaven: School of Mages,63,normal,common,1,58100,556a0816-83c5-41dc-8546-213b21e2cceb,2.42,false,false,near_mint,ru,RUB
+Guiding Voice,STX,Strixhaven: School of Mages,19,normal,common,1,58335,d6fb3163-12ca-4a7f-a0c7-b8ddfc9408a0,7.27,false,false,near_mint,ru,RUB
+Fuming Effigy,STX,Strixhaven: School of Mages,103,normal,common,1,58170,7ce76a38-fc5f-4e29-ba24-4a877179a62c,4.04,false,false,near_mint,ru,RUB
+Leyline Invocation,STX,Strixhaven: School of Mages,136,normal,common,1,58092,4edfbed0-0c0d-4aa5-bfe0-5268aff0f958,2.42,false,false,near_mint,ru,RUB
+Resculpt,STX,Strixhaven: School of Mages,51,normal,common,1,58018,1bfb1fcb-a411-4c1c-b8fc-496242ae3a9b,15.35,false,false,near_mint,ru,RUB
+Illuminate History,STX,Strixhaven: School of Mages,108,normal,rare,1,58233,98739789-80b5-4224-a2e4-09e00654aa9d,9.69,false,false,near_mint,ru,RUB
+Snow Day,STX,Strixhaven: School of Mages,53,normal,uncommon,1,58251,a6b6f17d-45ba-4d60-a963-5eee026f2219,4.04,false,false,near_mint,ru,RUB
+Professor of Symbology,STX,Strixhaven: School of Mages,24,normal,uncommon,1,58390,f427cf73-9f5e-4ef5-bc4f-29ffbfda9d57,2.42,false,false,near_mint,ru,RUB
+Quandrix Apprentice,STX,Strixhaven: School of Mages,216,normal,uncommon,1,57970,0291c909-bb87-47cb-9b06-5e409e654f15,8.08,false,false,near_mint,ru,RUB
+Retriever Phoenix,STX,Strixhaven: School of Mages,113,normal,rare,1,58090,4dd6cb53-3c82-4ac3-be1e-311322729198,9.69,false,false,near_mint,ru,RUB
+Infuriate,STA,Strixhaven Mystical Archive,41,normal,uncommon,1,58143,71a5dfad-c8b4-46cc-9a06-73d23b269df8,10.5,false,false,near_mint,ru,RUB
+Pest,TSTX,Strixhaven: School of Mages Tokens,5,normal,common,1,58326,d0ddbe3e-4a66-494d-9304-7471232549bf,20.19,false,false,near_mint,ru,RUB
+Makeshift Mauler,INR,Innistrad Remastered,73,normal,common,1,102511,404c6bb8-4c64-458f-a4aa-98beb2c6a77c,0.81,false,false,near_mint,ru,RUB
+Gluttonous Guest,INR,Innistrad Remastered,112,normal,common,1,102464,25e98125-6c36-4571-afc5-2d018750eb57,2.42,false,false,near_mint,ru,RUB
+Alchemist's Greeting,INR,Innistrad Remastered,140,normal,common,1,102847,f36e2146-b6a9-4b61-9ccf-969a2c79b747,1.62,false,false,near_mint,ru,RUB
+Festerhide Boar,INR,Innistrad Remastered,196,normal,common,1,102736,b401dba6-c26e-45c1-b10a-12116fb1cb4e,1.62,false,false,near_mint,ru,RUB
+Inspiring Captain,INR,Innistrad Remastered,28,normal,common,1,102855,fb56d6ab-50bf-4407-9f30-595ef7ae9492,3.23,false,false,near_mint,ru,RUB
+Wretched Gryff,INR,Innistrad Remastered,7,normal,common,1,102602,722b519a-715d-4393-9d3c-97f329896ef4,2.42,false,false,near_mint,ru,RUB
+Lunarch Veteran // Luminous Phantom,INR,Innistrad Remastered,32,normal,common,1,102520,438e3302-daf9-436b-8b08-24b3f33295f6,6.46,false,false,near_mint,ru,RUB
+Neglected Heirloom // Ashmouth Blade,INR,Innistrad Remastered,269,normal,uncommon,1,102614,7813cd70-bb60-4953-a35d-9876f5230c42,4.04,false,false,near_mint,ru,RUB
+Bladestitched Skaab,INR,Innistrad Remastered,231,normal,uncommon,1,102724,af14d311-0fd5-4979-bc46-1421472c3b0a,6.46,false,false,near_mint,ru,RUB
+Runebound Wolf,INR,Innistrad Remastered,168,normal,uncommon,1,102666,8e220cc1-e13f-48da-b59b-91a556829ea5,4.04,false,false,near_mint,ru,RUB
+Stormcarved Coast,INR,Innistrad Remastered,285,normal,rare,1,102471,2a91991f-4340-45a7-ba04-0001de9581e0,218.09,false,false,near_mint,ru,RUB
+Alchemist's Greeting,INR,Innistrad Remastered,393,normal,common,1,102620,79ab381f-9392-4f39-8c63-a12eb60b00a5,3.23,false,false,near_mint,ru,RUB
+"Westvale Abbey // Ormendahl, Profane Prince",INR,Innistrad Remastered,287,foil,rare,1,102562,5fbc6091-a161-45b0-9932-543b569caaee,232.63,false,false,near_mint,ru,RUB
+Swamp,INR,Innistrad Remastered,293,normal,common,1,102530,4bc918af-527c-46d7-861d-32e9150ed3df,33.93,false,false,near_mint,ru,RUB
